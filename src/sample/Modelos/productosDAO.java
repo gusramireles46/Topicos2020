@@ -66,7 +66,7 @@ public class productosDAO {
     }
 
     public void insProducto(){
-        String query = "INSERT INTO tbl_productos (nomProducto, precio, existencia, vigencia, costo, idProveedor) VALUES ('"+nomProducto+"',"+precio+","+existencia+","+vigencia+","+costo+","+idProveedor+");";
+        String query = "INSERT INTO tbl_productos (nomProducto, precio, existencia, vigente, costo, idProveedor) VALUES ('"+nomProducto+"',"+precio+","+existencia+","+vigencia+","+costo+","+idProveedor+");";
 
         try {
             Statement stmt = con.createStatement();

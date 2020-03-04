@@ -33,7 +33,7 @@ public class CRUDProductos extends Stage {
         CrearTabla();
         _btnAgregar = new Button("Agregar Producto");
         _vbox.getChildren().addAll(_tbvProductos, _btnAgregar);
-        _btnAgregar.setOnAction(event -> AgregarProducto(1));
+        _btnAgregar.setOnAction(event -> AgregarProducto());
         _escena = new Scene(_vbox, 840, 450);
     }
 
@@ -80,12 +80,8 @@ public class CRUDProductos extends Stage {
 
     }
 
-    private void AgregarProducto(int opc) {
-        switch (opc){
-            case 1:
-                new frmProducto();
-                break;
-        }
+    private void AgregarProducto() {
+        new frmProducto();
     }
 
 
