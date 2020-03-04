@@ -19,7 +19,7 @@ public class Main extends Application {
     private HBox _hbox;
     private MenuBar _mnbPrincipal;
     private Menu _mnCompetencia1, _mnCompetencia2, _mnSalida;
-    private MenuItem _mitPractica1, _mitBye, _mitPractica3;
+    private MenuItem _mitPractica1, _mitPractica2, _mitBye, _mitPractica3;
     private BorderPane _bdpPrincipal;
     private Scene _escenaPrincipal;
 
@@ -33,12 +33,12 @@ public class Main extends Application {
         _mnCompetencia2 = new Menu("Competencia 2");
         _mnSalida = new Menu("Salir");
 
-        _mitPractica1 = new MenuItem("Taquimecanógrafo");
+        _mitPractica2 = new MenuItem("Taquimecanógrafo");
         _mitPractica1 = new MenuItem("Buscaminas");
         _mitPractica1.setOnAction(event -> EventoMenu(1));
-        _mitPractica1.setOnAction(event -> EventoMenu(2));
+        _mitPractica2.setOnAction(event -> EventoMenu(2));
 
-        _mnCompetencia1.getItems().addAll(_mitPractica1);
+        _mnCompetencia1.getItems().addAll(_mitPractica1, _mitPractica2);
 
         _mitPractica3 = new MenuItem("CRUD Productos");
         _mitPractica3.setOnAction(event -> EventoMenu(3));
