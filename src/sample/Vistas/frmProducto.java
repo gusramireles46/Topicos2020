@@ -1,5 +1,6 @@
 package sample.Vistas;
 
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -13,11 +14,15 @@ public class frmProducto extends Stage {
     private ComboBox _cbxVigente;
     private ComboBox _cbxProveedor;
     private Button _btnGuardar;
+    private Scene _escena;
 
     public frmProducto(){
         CrearGUI();
+        this.setTitle("Gestion de Productos :3");
+        this.setScene(_escena);
+        this.show();
     }
 
-    public void CrearGUI() {
+    private void CrearGUI() {
     }
 }
