@@ -81,7 +81,7 @@ public class CRUDProductos extends Stage {
     }
 
     private void AgregarProducto() {
-        new frmProducto();
+        new frmProducto(_tbvProductos);
     }
 
 

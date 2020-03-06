@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -21,12 +22,13 @@ public class frmProducto extends Stage {
     private Button _btnGuardar;
     private Scene _escena;
     private productosDAO _objP;
+    private TableView<productosDAO> _tbvProductos;
 
-    public frmProducto(){
+    public frmProducto(TableView<productosDAO> _tbvP){
+        this._tbvProductos = _tbvP;
         CrearGUI();
         this.setTitle("Gestion de Productos :3");
         this.setScene(_escena);
-        //this.setMaximized(true);
         this.show();
     }
 
@@ -78,5 +80,10 @@ public class frmProducto extends Stage {
 
         _objP.setIdProveedor(objTemp.getIdProveedor());
         _objP.insProducto();
+
+        _tbvProductos.setItems(_objP.selAllProducts());
+        _tbvProductos.refresh();
+
+        this.close();
     }
 }
