@@ -1,5 +1,7 @@
 package sample.Vistas;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,13 +10,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import sample.Modelos.productosDAO;
+import sample.Modelos.proveedoresDAO;
 
 public class frmProducto extends Stage {
 
     private VBox _vbox;
     private TextField _txfDesc, _txfCosto, _txfPrecio, _txfExistencia;
-    private ComboBox _cbxVigente;
-    private ComboBox _cbxProveedor;
+    private ComboBox<String> _cbxVigente;
+    private ComboBox<proveedoresDAO> _cbxProveedor;
     private Button _btnGuardar;
     private Scene _escena;
     private productosDAO _objP;
@@ -43,8 +46,16 @@ public class frmProducto extends Stage {
         _txfExistencia = new TextField();
         _txfExistencia.setMaxWidth(150);
         _txfExistencia.setPromptText("Existencia");
+
+        ObservableList<String> listaV = FXCollections.observableArrayList();
+        listaV.addAll("Vigente", "Descontinuado");
         _cbxVigente = new ComboBox();
+        _cbxVigente.setItems(listaV);
+
         _cbxProveedor = new ComboBox();
+
+        _cbxProveedor.setItems(new proveedoresDAO().selAllProveedores());
+
         _btnGuardar = new Button("Guardar");
         _btnGuardar.setOnAction(event -> guardarDatos());
         _vbox.getChildren().addAll(_txfDesc, _txfCosto, _txfPrecio, _txfExistencia, _cbxVigente, _cbxProveedor, _btnGuardar);
@@ -58,8 +69,14 @@ public class frmProducto extends Stage {
         _objP.setCosto(Float.parseFloat(_txfCosto.getText()));
         _objP.setPrecio(Float.parseFloat(_txfPrecio.getText()));
         _objP.setExistencia(Integer.parseInt(_txfExistencia.getText()));
-        _objP.setVigencia(true);
-        _objP.setIdProveedor(2);
+
+        Boolean _ban = (_cbxVigente.getValue() == "Vigente") ? true : false;
+        _objP.setVigencia(_ban);
+
+        //proveedoresDAO objTemp = _cbxProveedor.getItems().get(_cbxProveedor.getSelectionModel().getSelectedIndex());
+        proveedoresDAO objTemp = _cbxProveedor.getValue();
+
+        _objP.setIdProveedor(objTemp.getIdProveedor());
         _objP.insProducto();
     }
 }

@@ -111,7 +111,9 @@ public class productosDAO {
                 objP.setCosto(res.getFloat("costo"));
                 listaP.add(objP);
             }
-        }catch(Exception e){}
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
         return listaP;
     }
