@@ -40,8 +40,12 @@ public class Buscaminas extends Stage {
         _txfRow.setMaxWidth(50);
         _txfCol = new TextField();
         _txfCol.setMaxWidth(50);
+        _btnMinar = new Button("Minar Campo");
 
-        _vbox.getChildren().addAll(_lblRow, _txfRow, _lblCol, _txfCol);
+        _hbox.getChildren().addAll(_lblRow, _txfRow, _lblCol, _txfCol, _btnMinar);
+        _vbox.getChildren().addAll(_hbox);
+
         _escena = new Scene(_vbox,600,500);
+        _escena.getStylesheets().add("sample/Estilos/Bootstrap3.css");
     }
 }
