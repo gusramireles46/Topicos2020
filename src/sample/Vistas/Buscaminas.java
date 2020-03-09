@@ -1,14 +1,17 @@
 package sample.Vistas;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import sample.Eventos.EventoBuscaminas;
 
 public class Buscaminas extends Stage {
     private Label _lblRow, _lblCol;
@@ -42,10 +45,13 @@ public class Buscaminas extends Stage {
         _txfCol.setMaxWidth(50);
         _btnMinar = new Button("Minar Campo");
 
+        _btnMinar.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventoBuscaminas(_txfRow, _txfCol, _arrBtnCeldas, _gdpCampo, _vbox));
+
         _hbox.getChildren().addAll(_lblRow, _txfRow, _lblCol, _txfCol, _btnMinar);
         _vbox.getChildren().addAll(_hbox);
+        _vbox.setPadding(new Insets(10));
 
         _escena = new Scene(_vbox,600,500);
-        _escena.getStylesheets().add("sample/Estilos/Bootstrap3.css");
+        //_escena.getStylesheets().add("sample/Estilos/Bootstrap3.css");
     }
 }
