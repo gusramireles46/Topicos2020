@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import sample.Modelos.Conexion;
 import sample.Vistas.Buscaminas;
 import sample.Vistas.CRUDProductos;
+import sample.Vistas.Minesweeper;
 import sample.Vistas.Taquimecanografo;
 
 public class Main extends Application {
@@ -64,7 +65,7 @@ public class Main extends Application {
     private void EventoMenu(int i) {
         switch (i){
             case 1:
-                new Buscaminas();
+                new Minesweeper();
                 break;
             case 2:
                 new Taquimecanografo();

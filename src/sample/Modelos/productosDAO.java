@@ -77,7 +77,7 @@ public class productosDAO {
     }
 
     public void updProducto(){
-        String query = "UPDATE tbl_productos nomProducto='"+nomProducto+"', precio="+precio+", existencia="+existencia+", vigente='"+vigencia+"', idProveedor="+idProveedor+", costo="+costo+" WHERE idProducto="+idProducto;
+        String query = "UPDATE tbl_productos SET nomProducto='"+nomProducto+"', precio="+precio+", existencia="+existencia+", vigente="+vigencia+", idProveedor="+idProveedor+", costo="+costo+" WHERE idProducto="+idProducto;
         try {
             Statement stmt = con.createStatement();
             stmt.executeUpdate(query);
