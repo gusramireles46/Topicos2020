@@ -10,10 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import sample.Modelos.Conexion;
-import sample.Vistas.Buscaminas;
-import sample.Vistas.CRUDProductos;
-import sample.Vistas.Minesweeper;
-import sample.Vistas.Taquimecanografo;
+import sample.Vistas.*;
 
 public class Main extends Application {
     private VBox _vbox;
@@ -65,7 +62,7 @@ public class Main extends Application {
     private void EventoMenu(int i) {
         switch (i){
             case 1:
-                new Minesweeper();
+                new Buscaminas();
                 break;
             case 2:
                 new Taquimecanografo();
