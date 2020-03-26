@@ -17,7 +17,7 @@ public class Main extends Application {
     private HBox _hbox;
     private MenuBar _mnbPrincipal;
     private Menu _mnCompetencia1, _mnCompetencia2, _mnSalida;
-    private MenuItem _mitPractica1, _mitPractica2, _mitBye, _mitPractica3;
+    private MenuItem _mitPractica1, _mitPractica2, _mitBye, _mitPractica3, _mitPractica4;
     private BorderPane _bdpPrincipal;
     private Scene _escenaPrincipal;
 
@@ -40,8 +40,10 @@ public class Main extends Application {
 
         _mitPractica3 = new MenuItem("CRUD Productos");
         _mitPractica3.setOnAction(event -> EventoMenu(3));
+        _mitPractica4 = new MenuItem("Pista de Atletismo");
+        _mitPractica4.setOnAction(event -> EventoMenu(4));
 
-        _mnCompetencia2.getItems().addAll(_mitPractica3);
+        _mnCompetencia2.getItems().addAll(_mitPractica3, _mitPractica4);
         _mitBye = new MenuItem("Bye T-T");
         _mitBye.setOnAction(event -> EventoMenu(99));
         _mnSalida.getItems().add(_mitBye);
@@ -70,12 +72,13 @@ public class Main extends Application {
             case 3:
                 new CRUDProductos();
                 break;
+            case 4: new PistaAtletismo();
+                break;
             case 99:
                 System.exit(0);
                 break;
         }
     }
-
 
     public static void main(String[] args) {
         launch(args);
