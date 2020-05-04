@@ -9,6 +9,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import sample.Componentes.ConsumidorThread;
+import sample.Componentes.ProductorThread;
 import sample.Modelos.Conexion;
 import sample.Vistas.*;
 
@@ -59,6 +61,10 @@ public class Main extends Application {
         primaryStage.setTitle("Tópicos Avanzados de Programación");
         primaryStage.setScene(_escenaPrincipal);
         primaryStage.show();
+
+        RecursoCompartido _objR = new RecursoCompartido();
+        new ProductorThread(_objR).start();
+        new ConsumidorThread(_objR).start();
     }
 
     private void EventoMenu(int i) {
